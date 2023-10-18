@@ -10,20 +10,22 @@
 #include <string.h>
 #include <time.h>
 
-int valid_num(int ri, int rf);
-int busq_sec(int vec[], int n, int num);
+int valid_num(int ri, int rf, const char msg[]);
+int busq_sec(int vect[], int n, int num);
 int tam_cadena(char cadena[]);
 int busq_sec_matriz(int m4triz[][4], int m, int n, int num);
-void ordenar(int vect[]);
+void ordenar(int vect[], int m);
+char mayus(char cadena[]);
+int rand_rep(int vec2[], int m, int x);
 
-int valid_num(int ri, int rf)
+int valid_num(int ri, int rf, const char msg[])
 {
     int num;
     char xnum[30];
 
     do
     {
-        printf("\nDame un numero entre %d y %d: ", ri, rf);
+        puts(msg);
         fflush(stdin);
         gets(xnum);
         num = atoi(xnum);
@@ -85,8 +87,36 @@ void ordenar(int vect[], int m)
             }
         }
     }
-
-    printf("\nVector Ordenado.");
     printf("\n");
     system("PAUSE");
+}
+
+char mayus(char cadena[])
+{
+    int i;
+    printf("\n");
+    for(i = 0; cadena[i] != '\0'; i++)
+    {
+        if(cadena[i] >= 97)
+        {
+            if(cadena[i] <= 122)
+            {
+                cadena[i] = cadena[i] - 32;
+            }
+        }
+    }
+    return cadena[40];
+}
+
+int rand_rep(int vec2[], int m, int x)
+{
+    int i;
+    for (i = 0; i < m; i++)
+    {
+        if (vec2[i] == x)
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
