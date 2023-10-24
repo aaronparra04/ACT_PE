@@ -10,13 +10,12 @@
 #include <string.h>
 #include <time.h>
 
-int valid_num(int ri, int rf, const char msg[]);
-int busq_sec(int vect[], int n, int num);
+int valid_num(int ri, int rf,char msg[]);
+int busq_sec(int vec[], int n, int num);
 int tam_cadena(char cadena[]);
 int busq_sec_matriz(int m4triz[][4], int m, int n, int num);
 void ordenar(int vect[], int m);
 char mayus(char cadena[]);
-int rand_rep(int vec2[], int m, int x);
 
 int valid_num(int ri, int rf, const char msg[])
 {
@@ -87,12 +86,15 @@ void ordenar(int vect[], int m)
             }
         }
     }
+
+    printf("\nVector Ordenado.");
     printf("\n");
     system("PAUSE");
 }
 
 char mayus(char cadena[])
 {
+    system("CLS");
     int i;
     printf("\n");
     for(i = 0; cadena[i] != '\0'; i++)
@@ -103,20 +105,14 @@ char mayus(char cadena[])
             {
                 cadena[i] = cadena[i] - 32;
             }
+            else
+            {
+                if (cadena[i] == 164)
+                {
+                    cadena[i] == 165;
+                }
+            }
         }
     }
     return cadena[40];
-}
-
-int rand_rep(int vec2[], int m, int x)
-{
-    int i;
-    for (i = 0; i < m; i++)
-    {
-        if (vec2[i] == x)
-        {
-            return 1;
-        }
-    }
-    return 0;
 }
